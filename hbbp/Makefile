@@ -12,6 +12,8 @@ PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_VERSION:=$(PKG_REV)
 PKG_SOURCE_PROTO:=git
 
+PKG_BUILD_DEPENDS:=+nacl
+
 include $(INCLUDE_DIR)/package.mk
 
 define Package/hbbp
@@ -20,7 +22,7 @@ define Package/hbbp
   DEFAULT:=n
   TITLE:=HBBP - UDP broadcast utility
   URL:=http://code.sotun.de/git/hbbp
-  DEPENDS:=nacl
+  DEPENDS:=@IPV6
 endef
 
 define Package/hbbp/description

@@ -19,6 +19,7 @@ define Package/fsm
   CATEGORY:=Utilities
   DEFAULT:=n
   TITLE:=Finite State Machine Interpreter
+  MAINTAINER:=Jan Huwald <jh@sotun.de>
   URL:=http://code.sotun.de/git/ffj/fsm
   DEPENDS:=+flock
 endef

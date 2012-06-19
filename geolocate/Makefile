@@ -19,6 +19,7 @@ define Package/geolocate
   CATEGORY:=Utilities
   DEFAULT:=n
   TITLE:=Learn device location using wifi neighbours
+  MAINTAINER:=Jan Huwald <jh@sotun.de>
   URL:=http://code.sotun.de/git/ffj/geolocate
   DEPENDS:=uci
 endef

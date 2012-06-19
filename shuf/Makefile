@@ -19,6 +19,7 @@ define Package/shuf
   CATEGORY:=Utilities
   DEFAULT:=n
   TITLE:=shuffle lines
+  MAINTAINER:=Jan Huwald <jh@sotun.de>
   URL:=http://code.sotun.de/git/ffj/shuf
   DEPENDS:=@(!PACKAGE_coreutils-shuf)
 endef

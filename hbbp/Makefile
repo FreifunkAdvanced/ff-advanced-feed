@@ -21,6 +21,7 @@ define Package/hbbp
   CATEGORY:=Network
   DEFAULT:=n
   TITLE:=HBBP - UDP broadcast utility
+  MAINTAINER:=Jan Huwald <jh@sotun.de>
   URL:=http://code.sotun.de/git/hbbp
   DEPENDS:=@IPV6
 endef

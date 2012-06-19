@@ -19,6 +19,7 @@ define Package/p2ptbl
   CATEGORY:=Network
   DEFAULT:=n
   TITLE:=lightweight distributed key-value store
+  MAINTAINER:=Jan Huwald <jh@sotun.de>
   URL:=http://code.sotun.de/git/ffj/p2ptbl
   DEPENDS:=+shuf +hbbp +coreutils +coreutils-join
 endef

@@ -7,7 +7,7 @@ PKG_REV:=4cfc146c8cc1470dca98a6ea6e4fcf3a5f2378c9
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_REV).tar.gz
 PKG_MD5SUM:=always-use-git
-PKG_SOURCE_URL:=git://code.sotun.de/ffj/p2ptbl
+PKG_SOURCE_URL:=git://code.sotun.de/wrt/p2ptbl
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_VERSION:=$(PKG_REV)
 PKG_SOURCE_PROTO:=git

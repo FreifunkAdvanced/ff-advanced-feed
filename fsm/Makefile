@@ -7,7 +7,7 @@ PKG_REV:=1ebbdbf807ddee46ab4fbac747e051b432ad8fb7
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_REV).tar.gz
 PKG_MD5SUM:=always-use-git
-PKG_SOURCE_URL:=git://code.sotun.de/ffj/fsm
+PKG_SOURCE_URL:=git://code.sotun.de/wrt/fsm
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_VERSION:=$(PKG_REV)
 PKG_SOURCE_PROTO:=git

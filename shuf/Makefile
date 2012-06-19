@@ -7,7 +7,7 @@ PKG_REV:=743581225719056a79a378f04ebb44cea1bc3b8e
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_REV).tar.gz
 PKG_MD5SUM:=always-use-git
-PKG_SOURCE_URL:=git://code.sotun.de/ffj/shuf
+PKG_SOURCE_URL:=git://code.sotun.de/wrt/shuf
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_VERSION:=$(PKG_REV)
 PKG_SOURCE_PROTO:=git

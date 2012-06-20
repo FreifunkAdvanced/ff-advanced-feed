@@ -1,3 +1,14 @@
+#
+# Copyright (C) 2006-2012 OpenWrt.org
+#
+# This is free software, licensed under the GNU General Public License v2.
+# See /LICENSE for more information.
+#
+
+# Package content copyright (C) 
+# 2011-2012 Jan Huwald <jh@sotun.de>
+
+
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=hbbp
@@ -7,7 +18,7 @@ PKG_REV:=cf16b2181dbd1e769b1cdd2d6c27e5300a419012
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_REV).tar.gz
 PKG_MD5SUM:=always-use-git
-PKG_SOURCE_URL:=git://code.sotun.de/hbbp
+PKG_SOURCE_URL:=git://github.com/ffrl/hbbp.git
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_VERSION:=$(PKG_REV)
 PKG_SOURCE_PROTO:=git
@@ -19,6 +30,7 @@ include $(INCLUDE_DIR)/package.mk
 define Package/hbbp
   SECTION:=base
   CATEGORY:=Network
+  SUBMENU:=Freifunk Rheinland
   DEFAULT:=n
   TITLE:=HBBP - UDP broadcast utility
   MAINTAINER:=Jan Huwald <jh@sotun.de>

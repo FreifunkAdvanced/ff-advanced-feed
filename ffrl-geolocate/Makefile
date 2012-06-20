@@ -1,30 +1,43 @@
+#
+# Copyright (C) 2006-2012 OpenWrt.org
+#
+# This is free software, licensed under the GNU General Public License v2.
+# See /LICENSE for more information.
+#
+
+# Package content copyright (C) 
+# 2011-2012 Jan Huwald <jh@sotun.de>
+#      2012 Freifunk Rheinland e. V. <http://www.freifunk-rheinland.net/>
+
+
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=geolocate
+PKG_NAME:=ffrl-geolocate
 PKG_VERSION:=20120620
 PKG_RELEASE:=1
-PKG_REV:=769792c00de12cd885c380402aef9b5987f44d9c
+PKG_REV:=0b39a826c379a2401dbae12a5dadbf0eff3c76ff
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_REV).tar.gz
 PKG_MD5SUM:=always-use-git
-PKG_SOURCE_URL:=git://code.sotun.de/wrt/geolocate
+PKG_SOURCE_URL:=git://github.com/ffrl/geolocate.git
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_VERSION:=$(PKG_REV)
 PKG_SOURCE_PROTO:=git
 
 include $(INCLUDE_DIR)/package.mk
 
-define Package/geolocate
+define Package/ffrl-geolocate
   SECTION:=base
   CATEGORY:=Utilities
+  SUBMENU:=Freifunk Rheinland
   DEFAULT:=n
   TITLE:=Learn device location using wifi neighbours
-  MAINTAINER:=Jan Huwald <jh@sotun.de>
-  URL:=http://code.sotun.de/git/ffj/geolocate
+# MAINTAINER:=Jan Huwald <jh@sotun.de>
+# URL:=http://code.sotun.de/git/ffj/ffrl-geolocate
   DEPENDS:=uci
 endef
 
-define Package/geolocate/description
+define Package/ffrl-geolocate/description
 	Send the neighbouring wifi networks to google and get the
 	geolocation in return. The result is stored via UCI.
 endef
@@ -32,9 +45,9 @@ endef
 define Build/Compile
 endef
 
-define Package/geolocate/install
+define Package/ffrl-geolocate/install
 	$(INSTALL_DIR) $(1)/usr/sbin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/geolocate $(1)/usr/sbin/
 endef
 
-$(eval $(call BuildPackage,geolocate))
+$(eval $(call BuildPackage,ffrl-geolocate))

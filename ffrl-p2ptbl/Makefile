@@ -30,6 +30,7 @@ define Package/ffrl-p2ptbl
   SECTION:=base
   CATEGORY:=Network
   SUBMENU:=Freifunk Rheinland
+  PKGARCH:=all
   DEFAULT:=n
   TITLE:=lightweight distributed key-value store
 # MAINTAINER:=Jan Huwald <jh@sotun.de>

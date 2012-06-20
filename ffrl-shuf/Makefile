@@ -30,6 +30,7 @@ define Package/ffrl-shuf
   SECTION:=base
   CATEGORY:=Utilities
   SUBMENU:=Freifunk Rheinland
+  PKGARCH:=all
   DEFAULT:=n
   TITLE:=shuffle lines
 # MAINTAINER:=Jan Huwald <jh@sotun.de>

@@ -30,6 +30,7 @@ define Package/ffrl-geolocate
   SECTION:=base
   CATEGORY:=Utilities
   SUBMENU:=Freifunk Rheinland
+  PKGARCH:=all
   DEFAULT:=n
   TITLE:=Learn device location using wifi neighbours
 # MAINTAINER:=Jan Huwald <jh@sotun.de>

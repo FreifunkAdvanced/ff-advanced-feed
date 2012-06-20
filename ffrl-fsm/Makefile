@@ -30,6 +30,7 @@ define Package/ffrl-fsm
   SECTION:=base
   CATEGORY:=Utilities
   SUBMENU:=Freifunk Rheinland
+  PKGARCH:=all
   DEFAULT:=n
   TITLE:=Finite State Machine Interpreter
 # MAINTAINER:=Jan Huwald <jh@sotun.de>

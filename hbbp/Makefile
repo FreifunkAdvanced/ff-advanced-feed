@@ -12,9 +12,9 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=hbbp
-PKG_VERSION:=20120521
-PKG_RELEASE:=3
-PKG_REV:=cf16b2181dbd1e769b1cdd2d6c27e5300a419012
+PKG_VERSION:=20120719
+PKG_RELEASE:=1
+PKG_REV:=3fda60d9ca5eac24ed24c317605bd0d52bfd4393
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_REV).tar.gz
 PKG_MD5SUM:=always-use-git
@@ -23,7 +23,8 @@ PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_VERSION:=$(PKG_REV)
 PKG_SOURCE_PROTO:=git
 
-PKG_BUILD_DEPENDS:=+nacl
+# it should be ensured, that nacl is build before this package!!!
+#PKG_BUILD_DEPENDS:=+nacl
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -33,7 +34,8 @@ define Package/hbbp
   SUBMENU:=Freifunk Rheinland
   DEFAULT:=n
   TITLE:=HBBP - UDP broadcast utility
-  MAINTAINER:=Jan Huwald <jh@sotun.de>
+#  MAINTAINER:=Jan Huwald <jh@sotun.de> # phip changed this package
+  MAINTAINER:=Philipp Psurek <phip@vmail.me>, Jan Huwald <jh@sotun.de>
   URL:=http://code.sotun.de/git/hbbp
   DEPENDS:=@IPV6
 endef

@@ -13,7 +13,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=hbbp
 PKG_VERSION:=20120719
-PKG_RELEASE:=2
+PKG_RELEASE:=3
 PKG_REV:=c9949c5627044fb3dc3caf6f1a3902c44392bac1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_REV).tar.gz
@@ -59,6 +59,7 @@ define Package/hbbp/install
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/hbbpd $(1)/usr/sbin/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/hbbpc $(1)/usr/sbin/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/hbbp_keygen $(1)/usr/sbin/
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/hbbpp $(1)/usr/sbin/
 endef
 
 $(eval $(call BuildPackage,hbbp))

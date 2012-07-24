@@ -15,7 +15,7 @@
 # 2011-2012 Jan Huwald <jh@sotun.de>
 # 2011-2012 Freifunk Rheinland e. V. <http://www.freifunk-rheinland.net/>
 # 2011-2012 LCB01 <lcb01@fnordeingang.de>
-#      2012 Kai de Haan<skaverat@funlynx.de>
+#      2012 Kai de Haan <skaverat@funlynx.de>
 
 
 include $(TOPDIR)/rules.mk
@@ -57,7 +57,7 @@ define Build/Compile
 endef
 
 define Package/ffrl-splash/install
-	$(CP) -ap files/common/* $(1)/
+	$(CP) -ap $(PKG_BUILD_DIR)/files/common/* $(1)/
 endef
 
 $(eval $(call BuildPackage,ffrl-splash))

@@ -24,7 +24,7 @@ PKG_SOURCE_VERSION:=$(PKG_REV)
 PKG_SOURCE_PROTO:=git
 
 # it should be ensured, that nacl is build before this package!!!
-#PKG_BUILD_DEPENDS:=+nacl
+PKG_BUILD_DEPENDS:=+nacl
 
 include $(INCLUDE_DIR)/package.mk
 

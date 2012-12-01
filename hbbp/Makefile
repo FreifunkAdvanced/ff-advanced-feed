@@ -13,7 +13,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=hbbp
 PKG_VERSION:=20120719
-PKG_RELEASE:=3
+PKG_RELEASE:=4
 PKG_REV:=c9949c5627044fb3dc3caf6f1a3902c44392bac1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_REV).tar.gz
@@ -23,7 +23,6 @@ PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_VERSION:=$(PKG_REV)
 PKG_SOURCE_PROTO:=git
 
-# it should be ensured, that nacl is build before this package!!!
 PKG_BUILD_DEPENDS:=+nacl
 
 include $(INCLUDE_DIR)/package.mk

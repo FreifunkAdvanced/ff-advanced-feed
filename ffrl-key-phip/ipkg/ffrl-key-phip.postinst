@@ -1,0 +1,18 @@
+#!/bin/sh
+# post-install script.
+
+if [ ! -f "${IPKG_INSTROOT}/etc/dropbear/authorized_keys" ]; then
+  echo "+ file 'authorized_keys' not found, creating file"
+  mkdir -p "${IPKG_INSTROOT}/etc/dropbear"
+  touch "${IPKG_INSTROOT}/etc/dropbear/authorized_keys"
+fi
+
+echo "+ adding phip's SSH key"
+
+sed \
+  -e "/phip (Freifunk Rheinland\/Wuppertal) <phip@vmail.me>/d" \
+  -i "${IPKG_INSTROOT}/etc/dropbear/authorized_keys"
+
+echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDSa61xaxJbYrdOuBRgs9wpFF9uXImlbY/OR5jsGfqSE9gyTlPNqIA1tMH51lDPrMq4YeFA8xT0TolUpylt3W9Ora2p024Kff0cbnAgwfrQqKrRpDbq7XzU1ntP9w+m9B07KcAcC3+EJbzU89xtq9T8WF6XyhVmatEYa5syb7LiCtba7Gb8xfRXJg5t1Gjwv2UCGydUOmcsVrwpkvfL1T6CJ/HXi6cYD85ofInbDeH9ERE6x7LwhOXJWcym3yk2rJL1BWysKi2BVH/MIl6lOZtFFr5ftwr+baIHcwEjI5BE2RvVEHRNViiGHB7dxjbs/H8PYILuFBVK5qkyYSd8sIAx # phip (Freifunk Rheinland/Wuppertal) <phip@vmail.me>" \
+  >> "${IPKG_INSTROOT}/etc/dropbear/authorized_keys"
+

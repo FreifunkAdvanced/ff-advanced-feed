@@ -1,0 +1,18 @@
+#!/bin/sh
+# post-install script.
+
+if [ ! -f "${IPKG_INSTROOT}/etc/dropbear/authorized_keys" ]; then
+  echo "+ file 'authorized_keys' not found, creating file"
+  mkdir -p "${IPKG_INSTROOT}/etc/dropbear"
+  touch "${IPKG_INSTROOT}/etc/dropbear/authorized_keys"
+fi
+
+echo "+ adding lcb's SSH key"
+
+sed \
+  -e "/lcb (Freifunk Rheinland\/Neuss) <lcb01@fnordeingang.de>/d" \
+  -i "${IPKG_INSTROOT}/etc/dropbear/authorized_keys"
+
+echo "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAyXBYON/P9WeeVIpuGEmaGsvfStgE9iutV9IearewSiGZ+qw1yNwQ85XbXd7k72cjuuV/Z0p65lQsgbAevY1J8H33Pq9GRKQt1HJU5z4CXSH7uciPofH+myNrgUMRgI5G6nCum6NjaTr60yMkYcCwSRbG5TFLhTS+wZ8evHIcoQMnIdYw/s/nGk9uXH8ne1tjdyEDs3Xzp85uXcQyoOPYnEiPVuOQ2k3Z2n578FvB2GxeNjsKvfDZ7V8ZHCp5+G5kNJc9lp8VkEgXinTm1Wfh7+KQ40DgXPadQ2MWKl3PNqG27r81uz7pNFr0t0OzT3dfXsq0uB4YRZY7+KrbAoAU5w== # lcb (Freifunk Rheinland/Neuss) <lcb01@fnordeingang.de>" \
+  >> "${IPKG_INSTROOT}/etc/dropbear/authorized_keys"
+

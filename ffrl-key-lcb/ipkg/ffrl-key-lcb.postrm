@@ -1,0 +1,9 @@
+#!/bin/sh
+# post-removal script.
+
+echo "+ removing lcb's SSH key"
+
+sed \
+  -e "/lcb (Freifunk Rheinland\/Neuss) <lcb01@fnordeingang.de>/d" \
+  -i "${IPKG_INSTROOT}/etc/dropbear/authorized_keys"
+

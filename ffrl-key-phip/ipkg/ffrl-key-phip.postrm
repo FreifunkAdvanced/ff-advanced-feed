@@ -1,0 +1,9 @@
+#!/bin/sh
+# post-removal script.
+
+echo "+ removing phip's SSH key"
+
+sed \
+  -e "/phip (Freifunk Rheinland\/Wuppertal) <phip@vmail.me>/d" \
+  -i "${IPKG_INSTROOT}/etc/dropbear/authorized_keys"
+

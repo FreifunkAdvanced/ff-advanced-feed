@@ -1,0 +1,9 @@
+#!/bin/sh
+# post-removal script.
+
+echo "+ removing crontab entries"
+
+sed \
+  -e "/n2n watchdog/d" \
+  -i "${IPKG_INSTROOT}/etc/crontabs/root"
+

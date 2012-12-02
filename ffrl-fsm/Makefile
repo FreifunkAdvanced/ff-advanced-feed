@@ -15,7 +15,7 @@ include $(TOPDIR)/rules.mk
 PKG_NAME:=ffrl-fsm
 PKG_VERSION:=20121201
 PKG_RELEASE:=3
-PKG_REV:=7b9fefa9a256f9a0ff14f866bbd4dfd32d736f0e
+PKG_REV:=35567e22db7b59557067608b52379fc72ce7e4a4
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_REV).tar.gz
 PKG_MD5SUM:=always-use-git
@@ -48,7 +48,7 @@ endef
 
 define Package/ffrl-fsm/install
 	$(INSTALL_DIR) $(1)/usr/sbin
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/sbin/fsm $(1)/usr/sbin/
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/fsm $(1)/usr/sbin/
 endef
 
 $(eval $(call BuildPackage,ffrl-fsm))

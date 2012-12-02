@@ -7,7 +7,7 @@ if [ ! -f "${IPKG_INSTROOT}/etc/crontabs/root" ]; then
   touch "${IPKG_INSTROOT}/etc/crontabs/root"
 fi
 
-echo "+ adding lcb's SSH key"
+echo "+ adding inetable crontab entries"
 
 sed \
   -e "/gwip gossip/d" \
@@ -18,9 +18,9 @@ sed \
   -i "${IPKG_INSTROOT}/etc/crontabs/root"
 
   
-echo "*/1 * * * *    /sbin/p2ptbl gossip /tmp/p2ptbl/gwip      500 br-mesh # gwip gossip" \
+echo "*/1 * * * *    /usr/sbin/p2ptbl gossip /tmp/p2ptbl/gwip      500 br-mesh # gwip gossip" \
   >> "${IPKG_INSTROOT}/etc/crontabs/root"
 
-echo "*/1 * * * * /sbin/fsm watch inetable # inetable watcher" \
+echo "*/1 * * * * /usr/sbin/fsm watch inetable # inetable watcher" \
   >> "${IPKG_INSTROOT}/etc/crontabs/root"
 

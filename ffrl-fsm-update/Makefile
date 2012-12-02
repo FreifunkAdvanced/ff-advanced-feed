@@ -51,7 +51,7 @@ define Package/ffrl-fsm-update/install
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/etc/fsm/update/trans/*   $(1)/etc/fsm/update/trans/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/etc/fsm/update/watch/* $(1)/etc/fsm/update/watch/
 	$(CP) $(PKG_BUILD_DIR)/etc/fsm/update/{common.sh,initial_state} $(1)/etc/fsm/update/
-	ln -s $(1)/sbin/p2ptbl-recv $(1)/hbbp/p2ptbl/gwip
+	ln -s $(1)/usr/sbin/p2ptbl-recv $(1)/hbbp/p2ptbl/gwip
 	mkdir -p $(1)/CONTROL
 	$(INSTALL_BIN) ./ipkg/ffrl-fsm-update.postinst $(1)/CONTROL/postinst
 	$(INSTALL_BIN) ./ipkg/ffrl-fsm-update.postrm $(1)/CONTROL/postrm

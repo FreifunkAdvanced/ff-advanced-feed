@@ -53,7 +53,7 @@ define Package/ffrl-fsm-inetable/install
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/sbin/test_connectivity $(1)/sbin/
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/etc/config/cloud $(1)/etc/config/
 	$(CP) $(PKG_BUILD_DIR)/etc/fsm/inetable/{common.sh,common_queen.sh,initial_state} $(1)/etc/fsm/inetable/
-	ln -s $(1)/sbin/p2ptbl-recv $(1)/hbbp/p2ptbl/gwip
+	ln -s $(1)/usr/sbin/p2ptbl-recv $(1)/hbbp/p2ptbl/gwip
 	mkdir -p $(1)/CONTROL
 	$(INSTALL_BIN) ./ipkg/ffrl-fsm-inetable.postinst $(1)/CONTROL/postinst
 	$(INSTALL_BIN) ./ipkg/ffrl-fsm-inetable.postrm $(1)/CONTROL/postrm

@@ -13,9 +13,9 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ffrl-fsm
-PKG_VERSION:=20120611
-PKG_RELEASE:=1
-PKG_REV:=dc7c3a5ede6ba6db0d9d018ec9581fc27f82fc66
+PKG_VERSION:=20121201
+PKG_RELEASE:=3
+PKG_REV:=7b9fefa9a256f9a0ff14f866bbd4dfd32d736f0e
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_REV).tar.gz
 PKG_MD5SUM:=always-use-git
@@ -35,7 +35,7 @@ define Package/ffrl-fsm
   TITLE:=Finite State Machine Interpreter
 # MAINTAINER:=Jan Huwald <jh@sotun.de>
 # URL:=http://code.sotun.de/git/ffj/fsm
-  DEPENDS:=+flock
+  DEPENDS:=+flock +hbbp +ffrl-p2ptbl
 endef
 
 define Package/ffrl-fsm/description

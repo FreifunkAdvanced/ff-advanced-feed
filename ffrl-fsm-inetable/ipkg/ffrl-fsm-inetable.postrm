@@ -6,10 +6,6 @@ echo "+ removing settings"
 rm -f "${IPKG_INSTROOT}/hbbp/p2ptbl/update"
 
 sed \
-  -e "/ffrl firewall settings/d" \
-  -i "${IPKG_INSTROOT}/etc/firewall.user"
-  
-sed \
   -e "/gwip gossip/d" \
   -i "${IPKG_INSTROOT}/etc/crontabs/root"
 

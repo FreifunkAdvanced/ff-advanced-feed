@@ -36,7 +36,7 @@ define Package/ffrl-fsm-inetable
   TITLE:=Finite State Machine Inetable States
   MAINTAINER:=Linus Broich <lcb01@lcb01.de>
 # URL:=https://github.com/ffrl/fsm-inetable
-  DEPENDS:=ffrl-fsm +ffrl-urlencoder +firewall
+  DEPENDS:=ffrl-fsm +ffrl-urlencoder
 endef
 
 define Package/ffrl-fsm-inetable/description
@@ -51,7 +51,7 @@ define Package/ffrl-fsm-inetable/install
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/etc/fsm/inetable/trans/*   $(1)/etc/fsm/inetable/trans/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/etc/fsm/inetable/watch/* $(1)/etc/fsm/inetable/watch/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/sbin/test_connectivity $(1)/sbin/
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/etc/firewall.ffrl $(1)/etc/
+	$(INSTALL_DATA) $(PKG_BUILD_DIR)/etc/firewall.ffrl $(1)/etc/
 	$(CP) $(PKG_BUILD_DIR)/etc/fsm/inetable/{common.sh,common_queen.sh,initial_state} $(1)/etc/fsm/inetable/
 	mkdir -p $(1)/CONTROL
 	$(INSTALL_BIN) ./ipkg/ffrl-fsm-inetable.postinst $(1)/CONTROL/postinst

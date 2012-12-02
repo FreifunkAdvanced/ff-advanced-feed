@@ -1,0 +1,13 @@
+#!/bin/sh
+# post-removal script.
+
+echo "+ removing crontab entries"
+
+sed \
+  -e "/gwip gossip/d" \
+  -i "${IPKG_INSTROOT}/etc/crontabs/root"
+
+sed \
+  -e "/inetable watcher/d" \
+  -i "${IPKG_INSTROOT}/etc/crontabs/root"
+

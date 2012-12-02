@@ -1,0 +1,26 @@
+#!/bin/sh
+# post-install script.
+
+if [ ! -f "${IPKG_INSTROOT}/etc/crontabs/root" ]; then
+  echo "+ crontab 'root' not found, creating file"
+  mkdir -p "${IPKG_INSTROOT}/etc/crontabs"
+  touch "${IPKG_INSTROOT}/etc/crontabs/root"
+fi
+
+echo "+ adding lcb's SSH key"
+
+sed \
+  -e "/gwip gossip/d" \
+  -i "${IPKG_INSTROOT}/etc/crontabs/root"
+
+sed \
+  -e "/inetable watcher/d" \
+  -i "${IPKG_INSTROOT}/etc/crontabs/root"
+
+  
+echo "*/1 * * * *    /sbin/p2ptbl gossip /tmp/p2ptbl/gwip      500 br-mesh # gwip gossip" \
+  >> "${IPKG_INSTROOT}/etc/crontabs/root"
+
+echo "*/1 * * * * /sbin/fsm watch inetable # inetable watcher" \
+  >> "${IPKG_INSTROOT}/etc/crontabs/root"
+

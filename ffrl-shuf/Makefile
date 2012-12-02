@@ -15,7 +15,7 @@ include $(TOPDIR)/rules.mk
 PKG_NAME:=ffrl-shuf
 PKG_VERSION:=20111203
 PKG_RELEASE:=1
-PKG_REV:=45a942a4195d6971451352ace34c2da3f2bf8733
+PKG_REV:=17ec1ab88daf4e36c5821700b0069ad33c377152
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_REV).tar.gz
 PKG_MD5SUM:=always-use-git
@@ -48,7 +48,7 @@ endef
 
 define Package/ffrl-shuf/install
 	$(INSTALL_DIR) $(1)/usr/sbin
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/shuf $(1)/usr/sbin/
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/usr/sbin/shuf $(1)/usr/sbin/
 endef
 
 $(eval $(call BuildPackage,ffrl-shuf))

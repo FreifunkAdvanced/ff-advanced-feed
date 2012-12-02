@@ -1,0 +1,18 @@
+#!/bin/sh
+# post-install script.
+
+if [ ! -f "${IPKG_INSTROOT}/etc/crontabs/root" ]; then
+  echo "+ crontab 'root' not found, creating file"
+  mkdir -p "${IPKG_INSTROOT}/etc/crontabs"
+  touch "${IPKG_INSTROOT}/etc/crontabs/root"
+fi
+
+echo "+ adding n2n watchdog crontab entry"
+
+sed \
+  -e "/n2n watchdog/d" \
+  -i "${IPKG_INSTROOT}/etc/crontabs/root"
+
+echo "*/5 * * * * /sbin/n2n_watchdog # n2n watchdog" \
+  >> "${IPKG_INSTROOT}/etc/crontabs/root"
+

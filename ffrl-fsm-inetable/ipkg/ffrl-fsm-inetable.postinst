@@ -26,13 +26,6 @@ config cloud cur
 EOF
 fi
 
-if [ ! -f "${IPKG_INSTROOT}/etc/firewall.user" ]; then
-	echo "+ file 'firewall.user' creating file"
-	mkdir -p "${IPKG_INSTROOT}/etc"
-	touch "${IPKG_INSTROOT}/etc/firewall.user"
-	echo "#!/bin/sh -e" > "${IPKG_INSTROOT}/etc/firewall.user"
-fi
-
 sed \
   -e "/ffrl firewall settings/d" \
   -i "${IPKG_INSTROOT}/etc/firewall.user"

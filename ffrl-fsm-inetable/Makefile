@@ -16,7 +16,7 @@ include $(TOPDIR)/rules.mk
 PKG_NAME:=ffrl-fsm-inetable
 PKG_VERSION:=20121201
 PKG_RELEASE:=1
-PKG_REV:=df1d17eb1a65090595521e749a7bd04a7ccfea79
+PKG_REV:=9155b60df7884313fdc35fdc52ebd4fd619e793f
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_REV).tar.gz
 PKG_MD5SUM:=always-use-git
@@ -36,7 +36,7 @@ define Package/ffrl-fsm-inetable
   TITLE:=Finite State Machine Inetable States
   MAINTAINER:=Linus Broich <lcb01@lcb01.de>
 # URL:=https://github.com/ffrl/fsm-inetable
-  DEPENDS:=ffrl-fsm +ffrl-urlencoder
+  DEPENDS:=ffrl-fsm +ffrl-urlencoder +firewall
 endef
 
 define Package/ffrl-fsm-inetable/description
@@ -51,7 +51,7 @@ define Package/ffrl-fsm-inetable/install
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/etc/fsm/inetable/trans/*   $(1)/etc/fsm/inetable/trans/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/etc/fsm/inetable/watch/* $(1)/etc/fsm/inetable/watch/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/sbin/test_connectivity $(1)/sbin/
-	$(INSTALL_DATA) $(PKG_BUILD_DIR)/etc/firewall.ffrl $(1)/etc/
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/etc/firewall.ffrl $(1)/etc/
 	$(CP) $(PKG_BUILD_DIR)/etc/fsm/inetable/{common.sh,common_queen.sh,initial_state} $(1)/etc/fsm/inetable/
 	mkdir -p $(1)/CONTROL
 	$(INSTALL_BIN) ./ipkg/ffrl-fsm-inetable.postinst $(1)/CONTROL/postinst

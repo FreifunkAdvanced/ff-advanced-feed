@@ -16,7 +16,7 @@ include $(TOPDIR)/rules.mk
 PKG_NAME:=ffrl-fsm-inetable
 PKG_VERSION:=20121201
 PKG_RELEASE:=1
-PKG_REV:=52bab420075c6e1dc1014e304772cb56d700fd33
+PKG_REV:=df1d17eb1a65090595521e749a7bd04a7ccfea79
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_REV).tar.gz
 PKG_MD5SUM:=always-use-git
@@ -47,13 +47,12 @@ define Build/Compile
 endef
 
 define Package/ffrl-fsm-inetable/install
-	$(INSTALL_DIR) $(1)/etc/config $(1)/etc/fsm/inetable/trans $(1)/etc/fsm/inetable/watch $(1)/hbbp/p2ptbl $(1)/sbin
+	$(INSTALL_DIR) $(1)/etc $(1)/etc/fsm/inetable/trans $(1)/etc/fsm/inetable/watch $(1)/sbin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/etc/fsm/inetable/trans/*   $(1)/etc/fsm/inetable/trans/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/etc/fsm/inetable/watch/* $(1)/etc/fsm/inetable/watch/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/sbin/test_connectivity $(1)/sbin/
-	$(INSTALL_DATA) $(PKG_BUILD_DIR)/etc/config/cloud $(1)/etc/config/
+	$(INSTALL_DATA) $(PKG_BUILD_DIR)/etc/firewall.ffrl $(1)/etc/
 	$(CP) $(PKG_BUILD_DIR)/etc/fsm/inetable/{common.sh,common_queen.sh,initial_state} $(1)/etc/fsm/inetable/
-	ln -s $(1)/usr/sbin/p2ptbl-recv $(1)/hbbp/p2ptbl/gwip
 	mkdir -p $(1)/CONTROL
 	$(INSTALL_BIN) ./ipkg/ffrl-fsm-inetable.postinst $(1)/CONTROL/postinst
 	$(INSTALL_BIN) ./ipkg/ffrl-fsm-inetable.postrm $(1)/CONTROL/postrm

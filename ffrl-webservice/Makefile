@@ -57,7 +57,7 @@ define Build/Compile
 endef
 
 define Package/ffrl-webservice/install
-	$(INSTALL_DIR) $(1)/etc/config $(1)/www
+	$(INSTALL_DIR) $(1)/etc/config $(1)/www $(1)/sbin
 	$(INSTALL_BIN) $(1)/sbin/splash_sync $(1)/sbin/
 	$(INSTALL_BIN) $(1)/etc/splash.sh $(1)/etc/
 	$(INSTALL_DATA) $(1)/etc/config/splash_users $(1)/etc/config

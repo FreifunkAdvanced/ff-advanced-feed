@@ -48,7 +48,7 @@ endef
 
 define Package/ffrl-fsm/install
 	$(INSTALL_DIR) $(1)/usr/sbin
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/fsm $(1)/usr/sbin/
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/sbin/fsm $(1)/usr/sbin/
 endef
 
 $(eval $(call BuildPackage,ffrl-fsm))

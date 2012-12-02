@@ -27,19 +27,12 @@ EOF
 fi
 
 sed \
-  -e "/ffrl firewall settings/d" \
-  -i "${IPKG_INSTROOT}/etc/firewall.user"
-
-sed \
   -e "/gwip gossip/d" \
   -i "${IPKG_INSTROOT}/etc/crontabs/root"
 
 sed \
   -e "/inetable watcher/d" \
   -i "${IPKG_INSTROOT}/etc/crontabs/root"
-
-echo ". /etc/firewall.ffrl # ffrl firewall settings" \
-  >> "${IPKG_INSTROOT}/etc/firewall.user"
 
 echo "*/1 * * * *    /usr/sbin/p2ptbl gossip /tmp/p2ptbl/gwip      500 br-mesh # gwip gossip" \
   >> "${IPKG_INSTROOT}/etc/crontabs/root"

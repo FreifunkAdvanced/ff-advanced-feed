@@ -54,11 +54,12 @@ define Build/Compile
 endef
 
 define Package/hbbp/install
-	$(INSTALL_DIR) $(1)/usr/sbin
+	$(INSTALL_DIR) $(1)/usr/sbin $(1)/etc/init.d
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/hbbpd $(1)/usr/sbin/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/hbbpc $(1)/usr/sbin/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/hbbp_keygen $(1)/usr/sbin/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/hbbpp $(1)/usr/sbin/
+	$(INSTALL_BIN) ./ipkg/hbbp $(1)/etc/init.d
 endef
 
 $(eval $(call BuildPackage,hbbp))

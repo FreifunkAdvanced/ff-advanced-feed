@@ -33,7 +33,7 @@ define Package/ffrl-n2n-watchdog
   SUBMENU:=Freifunk Rheinland
   PKGARCH:=all
   DEFAULT:=n
-  TITLE:=Learn device location using wifi neighbours
+  TITLE:=n2n watchdog
   MAINTAINER:=Linus Broich <lcb01@lcb01.de>
 # URL:=https://github.com/ffrl/fsm-inetable
   DEPENDS:=ffrl-fsm +ffrl-urlscripts

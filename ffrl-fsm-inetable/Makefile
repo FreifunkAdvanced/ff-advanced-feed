@@ -16,7 +16,7 @@ include $(TOPDIR)/rules.mk
 PKG_NAME:=ffrl-fsm-inetable
 PKG_VERSION:=20121201
 PKG_RELEASE:=1
-PKG_REV:=df1d17eb1a65090595521e749a7bd04a7ccfea79
+PKG_REV:=9155b60df7884313fdc35fdc52ebd4fd619e793f
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_REV).tar.gz
 PKG_MD5SUM:=always-use-git

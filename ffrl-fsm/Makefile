@@ -35,7 +35,7 @@ define Package/ffrl-fsm
   TITLE:=Finite State Machine Interpreter
 # MAINTAINER:=Jan Huwald <jh@sotun.de>
 # URL:=http://code.sotun.de/git/ffj/fsm
-  DEPENDS:=+flock +hbbp +ffrl-p2ptbl
+  DEPENDS:=+flock +ffrl-p2ptbl
 endef
 
 define Package/ffrl-fsm/description

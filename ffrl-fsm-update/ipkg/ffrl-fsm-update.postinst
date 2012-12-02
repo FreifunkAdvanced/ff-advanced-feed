@@ -1,6 +1,12 @@
 #!/bin/sh
 # post-install script.
 
+if [ ! -f "${IPKG_INSTROOT}/hbbp/p2ptbl/update" ]; then
+	echo "+ hbbp p2ptbl 'update' not found, creating file"
+	mkdir -p "${IPKG_INSTROOT}/hbbp/p2ptbl/"
+	ln -s "${IPKG_INSTROOT}/usr/sbin/p2ptbl-recv" "${IPKG_INSTROOT}/hbbp/p2ptbl/update"
+fi
+
 if [ ! -f "${IPKG_INSTROOT}/etc/crontabs/root" ]; then
   echo "+ crontab 'root' not found, creating file"
   mkdir -p "${IPKG_INSTROOT}/etc/crontabs"

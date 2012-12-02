@@ -3,6 +3,8 @@
 
 echo "+ removing crontab entries"
 
+rm -f "${IPKG_INSTROOT}/hbbp/p2ptbl/update"
+
 sed \
   -e "/update gossip/d" \
   -i "${IPKG_INSTROOT}/etc/crontabs/root"

@@ -58,9 +58,9 @@ endef
 
 define Package/ffrl-webservice/install
 	$(INSTALL_DIR) $(1)/etc/config $(1)/www $(1)/sbin
-	$(INSTALL_BIN) $(1)/sbin/splash_sync $(1)/sbin/
-	$(INSTALL_BIN) $(1)/etc/splash.sh $(1)/etc/
-	$(INSTALL_DATA) $(1)/etc/config/splash_users $(1)/etc/config
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/sbin/splash_sync $(1)/sbin/
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/etc/splash.sh $(1)/etc/
+	$(INSTALL_DATA) $(PKG_BUILD_DIR)/etc/config/splash_users $(1)/etc/config
 	$(CP) -ap $(PKG_BUILD_DIR)/www/* $(1)/www
 	mkdir -p $(1)/CONTROL
 	$(INSTALL_BIN) ./ipkg/ffrl-webservice.postinst $(1)/CONTROL/postinst

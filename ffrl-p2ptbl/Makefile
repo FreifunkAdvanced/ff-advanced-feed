@@ -14,8 +14,8 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ffrl-p2ptbl
 PKG_VERSION:=20121201
-PKG_RELEASE:=1
-PKG_REV:=9e9a51fa040b372bc965e3ce7e25074257f7a6b4
+PKG_RELEASE:=2
+PKG_REV:=93cd50fe66bad79b800ab44a9cffb4eeeccf2798
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_REV).tar.gz
 PKG_MD5SUM:=always-use-git

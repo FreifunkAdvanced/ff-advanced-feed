@@ -7,12 +7,55 @@ if [ ! -f "${IPKG_INSTROOT}/etc/crontabs/root" ]; then
   touch "${IPKG_INSTROOT}/etc/crontabs/root"
 fi
 
-echo "+ adding lcb's SSH key"
+if [ ! -f "${IPKG_INSTROOT}/etc/config/uhttpd" ]; then
+  echo "+ config 'uhttpd' not found, creating file"
+  mkdir -p "${IPKG_INSTROOT}/etc/config"
+  touch "${IPKG_INSTROOT}/etc/config/uhttpd"
+elif [ "$(grep '## FFRL-Web Start' ${IPKG_INSTROOT}/etc/config/uhttpd )" != "## FFRL-Web Start" ]; then
+  echo "+ found none FFRL 'uhttpd' config, creating backup"
+  mv "${IPKG_INSTROOT}/etc/config/uhttpd" "${IPKG_INSTROOT}/etc/config/uhttpd.bkp"
+  touch "${IPKG_INSTROOT}/etc/config/uhttpd"
+fi
+
+echo "+ splash crontabs & settings"
 
 sed \
   -e "/splash sync/d" \
   -i "${IPKG_INSTROOT}/etc/crontabs/root"
 
+sed \
+	-e '/FFRL-Web Start*/,/FFRL-Web End/d' \
+	-i "${IPKG_INSTROOT}/etc/config/uhttpd"
+
 echo "*/1 * * * * /sbin/splash_sync # splash sync" \
   >> "${IPKG_INSTROOT}/etc/crontabs/root"
 
+cat <<EOF >> ${IPKG_INSTROOT}/etc/config/uhttpd
+## FFRL-Web Start
+# By default all instances declared here are disabled; They are
+# enabled by the FSM inetable. The config type will be changed from
+# 'disabled' to 'uhttpd'; The rest of the config section is left as-is.
+
+# service instance
+config disabled service
+	option home		/www/service
+	option listen_http 	80
+	option rfc1918_filter 1
+	option cgi_prefix	/cgi-bin
+	option script_timeout	10
+	option network_timeout	30
+	option tcp_keepalive	10
+
+# redirection instance
+config disabled redirection
+	option home		/www/redirection
+	option listen_http 	81
+	option error_page 	/redirect
+	option index_page	redirect
+	option cgi_prefix	/
+	option rfc1918_filter 1
+	option script_timeout	10
+	option network_timeout	30
+	option tcp_keepalive	10
+## FFRL-Web End
+EOF

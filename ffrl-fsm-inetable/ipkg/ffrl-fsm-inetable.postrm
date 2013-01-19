@@ -13,3 +13,6 @@ sed \
   -e "/inetable watcher/d" \
   -i "${IPKG_INSTROOT}/etc/crontabs/root"
 
+sed \
+  -e "/FFRL-FW/d" \
+  -i "${IPKG_INSTROOT}/etc/config/firewall"

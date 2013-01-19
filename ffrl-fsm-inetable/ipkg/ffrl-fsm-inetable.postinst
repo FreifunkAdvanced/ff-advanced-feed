@@ -34,9 +34,24 @@ sed \
   -e "/inetable watcher/d" \
   -i "${IPKG_INSTROOT}/etc/crontabs/root"
 
+sed \
+  -e "/FFRL-FW/d" \
+  -i "${IPKG_INSTROOT}/etc/config/firewall"
+
 echo "*/1 * * * *    /usr/sbin/p2ptbl gossip /tmp/p2ptbl/gwip      500 br-mesh # gwip gossip" \
   >> "${IPKG_INSTROOT}/etc/crontabs/root"
 
 echo "*/1 * * * * /usr/sbin/fsm watch inetable # inetable watcher" \
   >> "${IPKG_INSTROOT}/etc/crontabs/root"
+
+cat <<EOF >> ${IPKG_INSTROOT}/etc/config/firewall
+config include	# FFRL-FW
+	option path 				'/etc/firewall.ffrl'	# FFRL-FW
+
+config rule               # FFRL-FW
+	option src              wan	# FFRL-FW
+	option dest_port        22	# FFRL-FW
+	option target           ACCEPT	# FFRL-FW  
+	option proto            tcp	# FFRL-FW
+EOF
 

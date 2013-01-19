@@ -36,7 +36,7 @@ define Package/ffrl-fsm-inetable
   TITLE:=Finite State Machine Inetable States
   MAINTAINER:=Linus Broich <lcb01@lcb01.de>
 # URL:=https://github.com/ffrl/fsm-inetable
-  DEPENDS:=ffrl-fsm +ffrl-urlencoder
+  DEPENDS:=ffrl-fsm +ffrl-urlencoder +firewall
 endef
 
 define Package/ffrl-fsm-inetable/description

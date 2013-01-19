@@ -15,7 +15,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ffrl-fsm-inetable
 PKG_VERSION:=20121201
-PKG_RELEASE:=2
+PKG_RELEASE:=3
 PKG_REV:=9155b60df7884313fdc35fdc52ebd4fd619e793f
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_REV).tar.gz

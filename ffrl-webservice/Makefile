@@ -23,7 +23,7 @@ include $(TOPDIR)/rules.mk
 PKG_NAME:=ffrl-webservice
 PKG_VERSION:=0.1.0
 PKG_RELEASE:=3
-PKG_REV:=e390579cc2a87d334136c1fef66986d5b3b7ec90
+PKG_REV:=a66b774051d309361220fcc0416d63a18e6e44be
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_REV).tar.gz
 PKG_MD5SUM:=always-use-git

@@ -22,7 +22,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ffrl-webservice
 PKG_VERSION:=0.1.0
-PKG_RELEASE:=3
+PKG_RELEASE:=4
 PKG_REV:=a66b774051d309361220fcc0416d63a18e6e44be
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_REV).tar.gz
@@ -43,7 +43,7 @@ define Package/ffrl-webservice
   TITLE:=Freifunk Rheinland e. V. Webservice
   MAINTAINER:=Linus Broich <lcb01@lcb01.de>
   URL:=https://freifunk-rheinland.net
-  DEPENDS:=+uhttpd +fsm-inetable
+  DEPENDS:=+uhttpd +ffrl-fsm-inetable
 endef
 
 define Package/ffrl-webservice/description

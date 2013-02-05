@@ -11,16 +11,16 @@
 
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=ffrl-key-phip
+PKG_NAME:=ffadv-key-phip
 PKG_VERSION:=20120624
 PKG_RELEASE:=1
 
 include $(INCLUDE_DIR)/package.mk
 
-define Package/ffrl-key-phip
+define Package/ffadv-key-phip
   SECTION:=base
   CATEGORY:=Utilities
-  SUBMENU:=Freifunk Rheinland
+  SUBMENU:=Freifunk Advanced
   PKGARCH:=all
   DEFAULT:=n
   TITLE:=SSH maintenance key (FFW phip)
@@ -29,7 +29,7 @@ define Package/ffrl-key-phip
   DEPENDS:=+dropbear
 endef
 
-define Package/ffrl-key-phip/description
+define Package/ffadv-key-phip/description
   SSH key for maintenance
 endef
 
@@ -42,10 +42,10 @@ endef
 define Build/Compile
 endef
 
-define Package/ffrl-key-phip/install
+define Package/ffadv-key-phip/install
 	mkdir -p $(1)/CONTROL
-	$(INSTALL_BIN) ./ipkg/ffrl-key-phip.postinst $(1)/CONTROL/postinst
-	$(INSTALL_BIN) ./ipkg/ffrl-key-phip.postrm $(1)/CONTROL/postrm
+	$(INSTALL_BIN) ./ipkg/ffadv-key-phip.postinst $(1)/CONTROL/postinst
+	$(INSTALL_BIN) ./ipkg/ffadv-key-phip.postrm $(1)/CONTROL/postrm
 endef
 
-$(eval $(call BuildPackage,ffrl-key-phip))
+$(eval $(call BuildPackage,ffadv-key-phip))

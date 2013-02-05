@@ -20,33 +20,33 @@
 
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=ffrl-splash
+PKG_NAME:=ffadv-splash
 PKG_VERSION:=0.8.0
 PKG_RELEASE:=1
 PKG_REV:=81b89a00a990945be5ed01cf9452f4f003513767
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_REV).tar.gz
 PKG_MD5SUM:=always-use-git
-PKG_SOURCE_URL:=git://github.com/ffrl/splash.git
+PKG_SOURCE_URL:=git://github.com/FreifunkAdvanced/splash.git
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_VERSION:=$(PKG_REV)
 PKG_SOURCE_PROTO:=git
 
 include $(INCLUDE_DIR)/package.mk
 
-define Package/ffrl-splash
+define Package/ffadv-splash
   SECTION:=base
   CATEGORY:=Utilities
-  SUBMENU:=Freifunk Rheinland
+  SUBMENU:=Freifunk Advanced
   PKGARCH:=all
   DEFAULT:=n
-  TITLE:=Freifunk Rheinland e. V. HTML splash
-  MAINTAINER:=Philipp Psurek <phip@vmail.me>
+  TITLE:=Freifunk Rheinland e. V. HTML splash (deprecated)
+  MAINTAINER:=Linus Broich <cyrus@lambdacore.de>
   URL:=https://freifunk-rheinland.net
   DEPENDS:=+uhttpd
 endef
 
-define Package/ffrl-splash/description
+define Package/ffadv-splash/description
   Dem Freifunknutzer wird bei der ersten Einwahl ins Freifunk eine Splash-Seite
   Präsentiert. Möchte er ins Internet gelangen muss er den Bedingungen
   zustimmen. Außerdem erhält der Nutzer auf diesen Webseiten die wichtigsten
@@ -56,8 +56,8 @@ endef
 define Build/Compile
 endef
 
-define Package/ffrl-splash/install
+define Package/ffadv-splash/install
 	$(CP) -ap $(PKG_BUILD_DIR)/files/common/* $(1)/
 endef
 
-$(eval $(call BuildPackage,ffrl-splash))
+$(eval $(call BuildPackage,ffadv-splash))

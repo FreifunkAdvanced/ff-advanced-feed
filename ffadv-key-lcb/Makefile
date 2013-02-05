@@ -11,25 +11,25 @@
 
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=ffrl-key-lcb
+PKG_NAME:=ffadv-key-lcb
 PKG_VERSION:=20120624
 PKG_RELEASE:=1
 
 include $(INCLUDE_DIR)/package.mk
 
-define Package/ffrl-key-lcb
+define Package/ffadv-key-lcb
   SECTION:=base
   CATEGORY:=Utilities
-  SUBMENU:=Freifunk Rheinland
+  SUBMENU:=Freifunk Advanced
   PKGARCH:=all
   DEFAULT:=n
   TITLE:=SSH maintenance key (FFNE lcb)
-  MAINTAINER:=lcb <lcb01@fnordeingang.de>
+  MAINTAINER:=Linus Broich <cyrus@lambdacore.de>
   URL:=http://freifunk-rheinland.net
   DEPENDS:=+dropbear
 endef
 
-define Package/ffrl-key-lcb/description
+define Package/ffadv-key-lcb/description
   SSH key for maintenance
 endef
 
@@ -42,10 +42,10 @@ endef
 define Build/Compile
 endef
 
-define Package/ffrl-key-lcb/install
+define Package/ffadv-key-lcb/install
 	mkdir -p $(1)/CONTROL
-	$(INSTALL_BIN) ./ipkg/ffrl-key-lcb.postinst $(1)/CONTROL/postinst
-	$(INSTALL_BIN) ./ipkg/ffrl-key-lcb.postrm $(1)/CONTROL/postrm
+	$(INSTALL_BIN) ./ipkg/ffadv-key-lcb.postinst $(1)/CONTROL/postinst
+	$(INSTALL_BIN) ./ipkg/ffadv-key-lcb.postrm $(1)/CONTROL/postrm
 endef
 
-$(eval $(call BuildPackage,ffrl-key-lcb))
+$(eval $(call BuildPackage,ffadv-key-lcb))

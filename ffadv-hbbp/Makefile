@@ -11,14 +11,14 @@
 
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=hbbp
+PKG_NAME:=ffadv-hbbp
 PKG_VERSION:=20120719
 PKG_RELEASE:=4
 PKG_REV:=c9949c5627044fb3dc3caf6f1a3902c44392bac1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_REV).tar.gz
 PKG_MD5SUM:=always-use-git
-PKG_SOURCE_URL:=git://github.com/ffrl/hbbp.git
+PKG_SOURCE_URL:=git://github.com/FreifunkAdvanced/hbbp.git
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_VERSION:=$(PKG_REV)
 PKG_SOURCE_PROTO:=git
@@ -27,19 +27,18 @@ PKG_BUILD_DEPENDS:=+nacl
 
 include $(INCLUDE_DIR)/package.mk
 
-define Package/hbbp
+define Package/ffadv-hbbp
   SECTION:=base
   CATEGORY:=Network
-  SUBMENU:=Freifunk Rheinland
+  SUBMENU:=Freifunk Advanced
   DEFAULT:=n
   TITLE:=HBBP - UDP broadcast utility
-#  MAINTAINER:=Jan Huwald <jh@sotun.de> # phip changed this package
-  MAINTAINER:=Philipp Psurek <phip@vmail.me>, Jan Huwald <jh@sotun.de>
+  MAINTAINER:=Linus Broich <cyrus@lambdacore.de>
   URL:=http://code.sotun.de/git/hbbp
   DEPENDS:=@IPV6
 endef
 
-define Package/hbbp/description
+define Package/ffadv-hbbp/description
 	Send UDP based broadcast messages and process them using the
 	included demon. Messages consist of a key and an optional
 	payload. The payload may be assymetrically encrypted.
@@ -53,7 +52,7 @@ define Build/Compile
 		EXTERNAL_NACL=1
 endef
 
-define Package/hbbp/install
+define Package/ffadv-hbbp/install
 	$(INSTALL_DIR) $(1)/usr/sbin $(1)/etc/init.d
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/hbbpd $(1)/usr/sbin/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/hbbpc $(1)/usr/sbin/
@@ -62,4 +61,4 @@ define Package/hbbp/install
 	$(INSTALL_BIN) ./ipkg/hbbp $(1)/etc/init.d
 endef
 
-$(eval $(call BuildPackage,hbbp))
+$(eval $(call BuildPackage,ffadv-hbbp))

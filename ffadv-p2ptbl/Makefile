@@ -12,33 +12,33 @@
 
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=ffrl-p2ptbl
+PKG_NAME:=ffadv-p2ptbl
 PKG_VERSION:=20121201
 PKG_RELEASE:=2
 PKG_REV:=93cd50fe66bad79b800ab44a9cffb4eeeccf2798
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_REV).tar.gz
 PKG_MD5SUM:=always-use-git
-PKG_SOURCE_URL:=git://github.com/ffrl/p2ptbl.git
+PKG_SOURCE_URL:=git://github.com/FreifunkAdvanced/p2ptbl.git
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_VERSION:=$(PKG_REV)
 PKG_SOURCE_PROTO:=git
 
 include $(INCLUDE_DIR)/package.mk
 
-define Package/ffrl-p2ptbl
+define Package/ffadv-p2ptbl
   SECTION:=base
   CATEGORY:=Network
-  SUBMENU:=Freifunk Rheinland
+  SUBMENU:=Freifunk Advanced
   PKGARCH:=all
   DEFAULT:=n
   TITLE:=lightweight distributed key-value store
-# MAINTAINER:=Jan Huwald <jh@sotun.de>
+  MAINTAINER:=Linus Broich <cyrus@lambdacore.de>
 # URL:=http://code.sotun.de/git/ffj/p2ptbl
-  DEPENDS:=+ffrl-shuf +hbbp +coreutils +coreutils-join
+  DEPENDS:=+ffadv-shuf +ffadv-hbbp +coreutils +coreutils-join
 endef
 
-define Package/ffrl-p2ptbl/description
+define Package/ffadv-p2ptbl/description
 	P2P tables are a lightweight distributed key-value store with
 	built-in collision arbitration. Eventual consistency is maintained
 	using a HBBP-based gossip protocol.
@@ -47,10 +47,10 @@ endef
 define Build/Compile
 endef
 
-define Package/ffrl-p2ptbl/install
+define Package/ffadv-p2ptbl/install
 	$(INSTALL_DIR) $(1)/usr/sbin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/p2ptbl $(1)/usr/sbin/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/p2ptbl-recv $(1)/usr/sbin/
 endef
 
-$(eval $(call BuildPackage,ffrl-p2ptbl))
+$(eval $(call BuildPackage,ffadv-p2ptbl))

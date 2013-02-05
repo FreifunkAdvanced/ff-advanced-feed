@@ -13,34 +13,34 @@
 
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=ffrl-nodeid
+PKG_NAME:=ffadv-nodeid
 PKG_VERSION:=20121201
 PKG_RELEASE:=1
 
 include $(INCLUDE_DIR)/package.mk
 
-define Package/ffrl-nodeid
+define Package/ffadv-nodeid
   SECTION:=base
   CATEGORY:=Utilities
-  SUBMENU:=Freifunk Rheinland
+  SUBMENU:=Freifunk Advanced
   PKGARCH:=all
   DEFAULT:=n
   TITLE:=Node ID generator
-  MAINTAINER:=Linus Broich <lcb01@lcb01.de>
-# URL:=https://github.com/ffrl/fsm-inetable
+  MAINTAINER:=Linus Broich <cyrus@lambdacore.de>
+# URL:=https://github.com/FreifunkAdvanced/fsm-inetable
 #  DEPENDS:=
 endef
 
-define Package/ffrl-nodeid/description
+define Package/ffadv-nodeid/description
 	Node ID generator
 endef
 
 define Build/Compile
 endef
 
-define Package/ffrl-nodeid/install
+define Package/ffadv-nodeid/install
 	$(INSTALL_DIR) $(1)/etc/init.d
 	$(INSTALL_BIN) ./ipkg/nodeid $(1)/etc/init.d/nodeid
 endef
 
-$(eval $(call BuildPackage,ffrl-nodeid))
+$(eval $(call BuildPackage,ffadv-nodeid))

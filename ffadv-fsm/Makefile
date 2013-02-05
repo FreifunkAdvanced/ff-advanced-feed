@@ -12,33 +12,33 @@
 
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=ffrl-fsm
+PKG_NAME:=ffadv-fsm
 PKG_VERSION:=20121201
 PKG_RELEASE:=3
 PKG_REV:=35567e22db7b59557067608b52379fc72ce7e4a4
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_REV).tar.gz
 PKG_MD5SUM:=always-use-git
-PKG_SOURCE_URL:=git://github.com/ffrl/fsm.git
+PKG_SOURCE_URL:=git://github.com/FreifunkAdvanced/fsm.git
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_VERSION:=$(PKG_REV)
 PKG_SOURCE_PROTO:=git
 
 include $(INCLUDE_DIR)/package.mk
 
-define Package/ffrl-fsm
+define Package/ffadv-fsm
   SECTION:=base
   CATEGORY:=Utilities
-  SUBMENU:=Freifunk Rheinland
+  SUBMENU:=Freifunk Advanced
   PKGARCH:=all
   DEFAULT:=n
   TITLE:=Finite State Machine Interpreter
 # MAINTAINER:=Jan Huwald <jh@sotun.de>
 # URL:=http://code.sotun.de/git/ffj/fsm
-  DEPENDS:=+flock +ffrl-p2ptbl
+  DEPENDS:=+flock +ffadv-p2ptbl
 endef
 
-define Package/ffrl-fsm/description
+define Package/ffadv-fsm/description
 	Allows to implement FSMs using sets of executables (typically
 	shell scripts)
 endef
@@ -46,9 +46,9 @@ endef
 define Build/Compile
 endef
 
-define Package/ffrl-fsm/install
+define Package/ffadv-fsm/install
 	$(INSTALL_DIR) $(1)/usr/sbin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/fsm $(1)/usr/sbin/
 endef
 
-$(eval $(call BuildPackage,ffrl-fsm))
+$(eval $(call BuildPackage,ffadv-fsm))

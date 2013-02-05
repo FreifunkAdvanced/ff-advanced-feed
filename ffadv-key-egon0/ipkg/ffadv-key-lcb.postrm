@@ -1,0 +1,9 @@
+#!/bin/sh
+# post-removal script.
+
+echo "+ removing egon0's SSH key"
+
+sed \
+  -e "/egon0 (Freifunk Jena) <egon0@freifunk-jena.de>/d" \
+  -i "${IPKG_INSTROOT}/etc/dropbear/authorized_keys"
+

@@ -1,0 +1,9 @@
+#!/bin/sh
+# post-removal script.
+
+echo "+ removing DSchmidtberg's SSH key"
+
+sed \
+  -e "/DSchmidtberg (Freifunk Rheinland\/Wuppertal) <dschmidtberg@freifunk-wuppertal.net>/d" \
+  -i "${IPKG_INSTROOT}/etc/dropbear/authorized_keys"
+

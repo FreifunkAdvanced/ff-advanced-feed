@@ -17,7 +17,7 @@ PKG_RELEASE:=1
 
 include $(INCLUDE_DIR)/package.mk
 
-define Package/ffadv-key-phip
+define Package/ffadv-key-dschmidtberg
   SECTION:=base
   CATEGORY:=Utilities
   SUBMENU:=Freifunk Advanced

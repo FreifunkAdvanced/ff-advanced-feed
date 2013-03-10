@@ -1,0 +1,17 @@
+#!/bin/sh
+# post-install script.
+
+if [ ! -f "${IPKG_INSTROOT}/etc/dropbear/authorized_keys" ]; then
+  echo "+ file 'authorized_keys' not found, creating file"
+  mkdir -p "${IPKG_INSTROOT}/etc/dropbear"
+  touch "${IPKG_INSTROOT}/etc/dropbear/authorized_keys"
+fi
+
+echo "+ adding DSchmidtberg's SSH key"
+
+sed \
+  -e "/DSchmidtberg (Freifunk Rheinland\/Wuppertal) <dschmidtberg@freifunk-wuppertal.net>/d" \
+  -i "${IPKG_INSTROOT}/etc/dropbear/authorized_keys"
+
+echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCj1AjLK8k5OJUCpRZciHEh2XD3gWNlN8FEsYpo/1Ua+f+CyIofxQzWTYdprd11NIwiE89YW5sJazahpWMGLfHnP56u5pyU8zXXoD1VQDz2QobuPG7/XCAGwcXJ8EOEJZepWBqKTf/Y3hMbUv1RMoIo/lcOwCI07SasB5aeSxIukzMN5pofUmoOlG2jzExONTrns91zpCOenMxEdmebnp9UH+wO+3naDttigRmKmLdoE5AoMN01vMDfZVCQ9EMc71Wklk4Xr0SXDpJs5HoB+efIRElas3TTPiR5mZbH5u02ccHnpShETqDvpxVIM9IGBjHwL8j0Ek9Ra4TBVoMVOeoP # DSchmidtberg (Freifunk Rheinland/Wuppertal) <dschmidtberg@freifunk-wuppertal.net>" \
+  >> "${IPKG_INSTROOT}/etc/dropbear/authorized_keys"

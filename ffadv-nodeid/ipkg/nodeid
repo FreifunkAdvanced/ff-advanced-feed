@@ -3,6 +3,6 @@ START=20
 
 start ()  {
       if ! [ -f /etc/nodeid ]; then
-      	 cat </proc/sys/kernel/random/boot_id > /etc/nodeid
+      	 ifconfig eth0 | grep -o -E '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}' | md5sum | cut -f1 -d' ' > /etc/nodeid
       fi
 }

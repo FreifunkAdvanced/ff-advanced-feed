@@ -7,14 +7,14 @@
 
 # Package content copyright (C) 
 # 2011-2012 Jan Huwald <jh@sotun.de>
-# 2012	Linus Broich <lcb01@lcb01.de>
-#      2012 Freifunk Rheinland e. V. <http://www.freifunk-rheinland.net/>
+# 2012-2013	Linus Broich <lcb01@lcb01.de>
+# 2012-2013 Freifunk Rheinland e. V. <http://www.freifunk-rheinland.net/>
 
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ffadv-nodeid
-PKG_VERSION:=20121201
+PKG_VERSION:=20130417
 PKG_RELEASE:=1
 
 include $(INCLUDE_DIR)/package.mk

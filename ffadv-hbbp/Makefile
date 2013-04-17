@@ -12,8 +12,8 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ffadv-hbbp
-PKG_VERSION:=20120719
-PKG_RELEASE:=4
+PKG_VERSION:=20130417
+PKG_RELEASE:=1
 PKG_REV:=c9949c5627044fb3dc3caf6f1a3902c44392bac1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_REV).tar.gz
@@ -53,12 +53,13 @@ define Build/Compile
 endef
 
 define Package/ffadv-hbbp/install
-	$(INSTALL_DIR) $(1)/usr/sbin $(1)/etc/init.d
+	$(INSTALL_DIR) $(1)/usr/sbin $(1)/etc/init.d $(1)/etc/config
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/hbbpd $(1)/usr/sbin/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/hbbpc $(1)/usr/sbin/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/hbbp_keygen $(1)/usr/sbin/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/hbbpp $(1)/usr/sbin/
-	$(INSTALL_BIN) ./ipkg/hbbp $(1)/etc/init.d
+	$(INSTALL_BIN) ./ipkg/hbbp.init $(1)/etc/init.d/hbbp
+	$(INSTALL_CONF) ./ipkg/hbbp.config $(1)/etc/config/hbbp
 endef
 
 $(eval $(call BuildPackage,ffadv-hbbp))

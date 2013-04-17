@@ -7,12 +7,12 @@ if [ ! -f "${IPKG_INSTROOT}/etc/crontabs/root" ]; then
   touch "${IPKG_INSTROOT}/etc/crontabs/root"
 fi
 
-echo "+ adding lcb's SSH key"
+echo "+ adding crontab entries"
 
 sed \
   -e "/splash sync/d" \
   -i "${IPKG_INSTROOT}/etc/crontabs/root"
 
-echo "*/1 * * * * /sbin/splash_sync # splash sync" \
+echo "*/1 * * * * /usr/sbin/splash_sync queen # splash sync" \
   >> "${IPKG_INSTROOT}/etc/crontabs/root"
 

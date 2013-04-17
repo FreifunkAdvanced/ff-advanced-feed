@@ -21,9 +21,9 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ffadv-webservice
-PKG_VERSION:=20130211
-PKG_RELEASE:=2
-PKG_REV:=32f2f4f5327813e3ad7ee6283a433147b236d2c9
+PKG_VERSION:=20130417
+PKG_RELEASE:=1
+PKG_REV:=43609e2281a578b816858f105367972dd1d2b58b
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_REV).tar.gz
 PKG_MD5SUM:=always-use-git
@@ -57,14 +57,15 @@ define Build/Compile
 endef
 
 define Package/ffadv-webservice/install
-	$(INSTALL_DIR) $(1)/etc/config $(1)/www $(1)/sbin
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/sbin/splash_sync $(1)/sbin/
+	$(INSTALL_DIR) $(1)/etc/config $(1)/www $(1)/usr/sbin
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/usr/sbin/splash_sync $(1)/usr/sbin/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/etc/splash.sh $(1)/etc/
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/etc/config/splash_users $(1)/etc/config
 	$(CP) -ap $(PKG_BUILD_DIR)/www/* $(1)/www
 	mkdir -p $(1)/CONTROL
 	$(INSTALL_BIN) ./ipkg/ffadv-webservice.postinst $(1)/CONTROL/postinst
 	$(INSTALL_BIN) ./ipkg/ffadv-webservice.postrm $(1)/CONTROL/postrm
+	$(INSTALL_CONF) ./ipkg/splash.config $(1)/etc/config/splash
 endef
 
 $(eval $(call BuildPackage,ffadv-webservice))

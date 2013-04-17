@@ -1,9 +1,32 @@
 #!/bin/sh /etc/rc.common
 START=45
+interfaces=$(uci get hbbp.settings.interfaces)
+
+get_iface () {
+	local interface=$1
+	local iface=$(uci get network.$interface.ifname)
+	local type=$(uci get network.$interface.type)
+	[ "bridge" = "$type" ] && iface="br-$interface"
+	echo $iface
+}
 
 start() {
-	cd /hbbp
-	hbbpd br-mesh
+	for interface in $interfaces
+	do
+		gossip_list=$(uci get network.$interface.gossip_list)
+		#If the hbbp folder is not existing, it will be created
+		[ ! -d /var/hbbp/$interface/p2ptbl] && mkdir -p /var/hbbp/$interface/p2ptbl
+		#Remove old p2ptbl merge script links if existant
+		rm -f /var/hbbp/$interface/p2ptbl/*
+		#Linking p2ptbl merge scripts for each gossip option
+		for gossip in $gossip_list
+		do
+			ln -s /usr/sbin/p2ptbl-recv /var/hbbp/$interface/p2ptbl/$gossip
+		done
+		
+		cd /var/hbbp/$interface
+		hbbpd $(get_iface $interface)
+	done
 }
 
 stop() {

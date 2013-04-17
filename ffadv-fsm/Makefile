@@ -13,9 +13,9 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ffadv-fsm
-PKG_VERSION:=20121201
-PKG_RELEASE:=3
-PKG_REV:=35567e22db7b59557067608b52379fc72ce7e4a4
+PKG_VERSION:=20130417
+PKG_RELEASE:=1
+PKG_REV:=38861a5e5ec7e102f1975d762e1e35b0947ff9bd
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_REV).tar.gz
 PKG_MD5SUM:=always-use-git
@@ -47,8 +47,11 @@ define Build/Compile
 endef
 
 define Package/ffadv-fsm/install
-	$(INSTALL_DIR) $(1)/usr/sbin
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/fsm $(1)/usr/sbin/
+	$(INSTALL_DIR) $(1)/usr/sbin $(1)/lib/fsm $(1)/lib/netifd/proto
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/usr/sbin/fsm $(1)/usr/sbin/
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/usr/sbin/netifd-fsm $(1)/usr/sbin/
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/lib/fsm/fsm-common.sh $(1)/lib/fsm/
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/lib/netifd/proto/fsm.sh $(1)/lib/netifd/proto/fsm.sh
 endef
 
 $(eval $(call BuildPackage,ffadv-fsm))

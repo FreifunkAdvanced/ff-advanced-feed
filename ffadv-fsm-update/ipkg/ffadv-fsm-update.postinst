@@ -1,32 +1,32 @@
 #!/bin/sh
 # post-install script.
 
-if [ ! -f "${IPKG_INSTROOT}/hbbp/p2ptbl/update" ]; then
-	echo "+ hbbp p2ptbl 'update' not found, creating file"
-	mkdir -p "${IPKG_INSTROOT}/hbbp/p2ptbl/"
-	ln -s "/usr/sbin/p2ptbl-recv" "${IPKG_INSTROOT}/hbbp/p2ptbl/update"
-fi
+# if [ ! -f "${IPKG_INSTROOT}/hbbp/p2ptbl/update" ]; then
+	# echo "+ hbbp p2ptbl 'update' not found, creating file"
+	# mkdir -p "${IPKG_INSTROOT}/hbbp/p2ptbl/"
+	# ln -s "/usr/sbin/p2ptbl-recv" "${IPKG_INSTROOT}/hbbp/p2ptbl/update"
+# fi
 
-if [ ! -f "${IPKG_INSTROOT}/etc/crontabs/root" ]; then
-  echo "+ crontab 'root' not found, creating file"
-  mkdir -p "${IPKG_INSTROOT}/etc/crontabs"
-  touch "${IPKG_INSTROOT}/etc/crontabs/root"
-fi
+# if [ ! -f "${IPKG_INSTROOT}/etc/crontabs/root" ]; then
+  # echo "+ crontab 'root' not found, creating file"
+  # mkdir -p "${IPKG_INSTROOT}/etc/crontabs"
+  # touch "${IPKG_INSTROOT}/etc/crontabs/root"
+# fi
 
-echo "+ adding update crontab entries"
+# echo "+ adding update crontab entries"
 
-sed \
-  -e "/update gossip/d" \
-  -i "${IPKG_INSTROOT}/etc/crontabs/root"
+# sed \
+  # -e "/update gossip/d" \
+  # -i "${IPKG_INSTROOT}/etc/crontabs/root"
 
-sed \
-  -e "/update watcher/d" \
-  -i "${IPKG_INSTROOT}/etc/crontabs/root"
+# sed \
+  # -e "/update watcher/d" \
+  # -i "${IPKG_INSTROOT}/etc/crontabs/root"
 
   
-echo "*/5 * * * *    /usr/sbin/p2ptbl gossip /tmp/p2ptbl/update      500 br-mesh # update gossip" \
-  >> "${IPKG_INSTROOT}/etc/crontabs/root"
+# echo "*/5 * * * *    /usr/sbin/p2ptbl gossip /tmp/p2ptbl/update      500 br-mesh # update gossip" \
+  # >> "${IPKG_INSTROOT}/etc/crontabs/root"
 
-echo "*/1 * * * * /usr/sbin/fsm watch update # update watcher" \
-  >> "${IPKG_INSTROOT}/etc/crontabs/root"
+# echo "*/1 * * * * /usr/sbin/fsm watch update # update watcher" \
+  # >> "${IPKG_INSTROOT}/etc/crontabs/root"
 

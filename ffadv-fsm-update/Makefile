@@ -14,9 +14,9 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ffadv-fsm-update
-PKG_VERSION:=20121201
+PKG_VERSION:=20130417
 PKG_RELEASE:=1
-PKG_REV:=09ec33d60dadabb5b7ecadc5690059a5628b2799
+PKG_REV:=d51113b8618303f576e60b59ba1b882dcfc9daea
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_REV).tar.gz
 PKG_MD5SUM:=always-use-git
@@ -47,10 +47,10 @@ define Build/Compile
 endef
 
 define Package/ffadv-fsm-update/install
-	$(INSTALL_DIR) $(1)/etc/fsm/update/trans $(1)/etc/fsm/update/watch
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/etc/fsm/update/trans/*   $(1)/etc/fsm/update/trans/
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/etc/fsm/update/watch/* $(1)/etc/fsm/update/watch/
-	$(CP) $(PKG_BUILD_DIR)/etc/fsm/update/{common.sh,initial_state} $(1)/etc/fsm/update/
+	$(INSTALL_DIR) $(1)/lib/fsm/update/trans $(1)/lib/fsm/update/watch
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/lib/fsm/update/trans/*   $(1)/lib/fsm/update/trans/
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/lib/fsm/update/watch/* $(1)/lib/fsm/update/watch/
+	$(CP) $(PKG_BUILD_DIR)/lib/fsm/update/{common.sh,initial_state} $(1)/lib/fsm/update/
 	mkdir -p $(1)/CONTROL
 	$(INSTALL_BIN) ./ipkg/ffadv-fsm-update.postinst $(1)/CONTROL/postinst
 	$(INSTALL_BIN) ./ipkg/ffadv-fsm-update.postrm $(1)/CONTROL/postrm

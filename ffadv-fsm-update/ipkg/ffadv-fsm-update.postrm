@@ -1,15 +1,15 @@
 #!/bin/sh
 # post-removal script.
 
-echo "+ removing crontab entries"
+# echo "+ removing crontab entries"
 
-rm -f "${IPKG_INSTROOT}/hbbp/p2ptbl/update"
+# rm -f "${IPKG_INSTROOT}/hbbp/p2ptbl/update"
 
-sed \
-  -e "/update gossip/d" \
-  -i "${IPKG_INSTROOT}/etc/crontabs/root"
+# sed \
+  # -e "/update gossip/d" \
+  # -i "${IPKG_INSTROOT}/etc/crontabs/root"
 
-sed \
-  -e "/update watcher/d" \
-  -i "${IPKG_INSTROOT}/etc/crontabs/root"
+# sed \
+  # -e "/update watcher/d" \
+  # -i "${IPKG_INSTROOT}/etc/crontabs/root"
 

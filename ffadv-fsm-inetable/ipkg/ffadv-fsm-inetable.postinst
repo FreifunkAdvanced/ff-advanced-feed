@@ -1,42 +1,42 @@
 #!/bin/sh
 # post-install script.
 
-if [ ! -f "${IPKG_INSTROOT}/hbbp/p2ptbl/gwip" ]; then
-	echo "+ hbbp p2ptbl 'gwip' not found, creating file"
-	mkdir -p "${IPKG_INSTROOT}/hbbp/p2ptbl/"
-	ln -s "/usr/sbin/p2ptbl-recv" "${IPKG_INSTROOT}/hbbp/p2ptbl/gwip"
-fi
+# if [ ! -f "${IPKG_INSTROOT}/hbbp/p2ptbl/gwip" ]; then
+	# echo "+ hbbp p2ptbl 'gwip' not found, creating file"
+	# mkdir -p "${IPKG_INSTROOT}/hbbp/p2ptbl/"
+	# ln -s "/usr/sbin/p2ptbl-recv" "${IPKG_INSTROOT}/hbbp/p2ptbl/gwip"
+# fi
 
-if [ ! -f "${IPKG_INSTROOT}/etc/crontabs/root" ]; then
-  echo "+ crontab 'root' not found, creating file"
-  mkdir -p "${IPKG_INSTROOT}/etc/crontabs"
-  touch "${IPKG_INSTROOT}/etc/crontabs/root"
-fi
+# if [ ! -f "${IPKG_INSTROOT}/etc/crontabs/root" ]; then
+  # echo "+ crontab 'root' not found, creating file"
+  # mkdir -p "${IPKG_INSTROOT}/etc/crontabs"
+  # touch "${IPKG_INSTROOT}/etc/crontabs/root"
+# fi
 
-if [ ! -f "${IPKG_INSTROOT}/etc/config/cloud" ]; then
-  echo "+ config 'cloud' not found, creating file"
-  mkdir -p "${IPKG_INSTROOT}/etc/config"
-  touch "${IPKG_INSTROOT}/etc/config/cloud"
-  cat <<EOF > ${IPKG_INSTROOT}/etc/config/cloud
-config cloud cur
-       option net_robinson      '21.0.0.0/8'
-       option net_fake          '22.0.0.0/8'
-       option net_mesh          '10.0.0.0/16'
-       option net_ip6ula        'fda0:747e:ab29::/64'
-EOF
-fi
+# if [ ! -f "${IPKG_INSTROOT}/etc/config/cloud" ]; then
+  # echo "+ config 'cloud' not found, creating file"
+  # mkdir -p "${IPKG_INSTROOT}/etc/config"
+  # touch "${IPKG_INSTROOT}/etc/config/cloud"
+  # cat <<EOF > ${IPKG_INSTROOT}/etc/config/cloud
+# config cloud cur
+       # option net_robinson      '21.0.0.0/8'
+       # option net_fake          '22.0.0.0/8'
+       # option net_mesh          '10.0.0.0/16'
+       # option net_ip6ula        'fda0:747e:ab29::/64'
+# EOF
+# fi
 
-sed \
-  -e "/gwip gossip/d" \
-  -i "${IPKG_INSTROOT}/etc/crontabs/root"
+# sed \
+  # -e "/gwip gossip/d" \
+  # -i "${IPKG_INSTROOT}/etc/crontabs/root"
 
-sed \
-  -e "/inetable watcher/d" \
-  -i "${IPKG_INSTROOT}/etc/crontabs/root"
+# sed \
+  # -e "/inetable watcher/d" \
+  # -i "${IPKG_INSTROOT}/etc/crontabs/root"
 
-echo "*/1 * * * *    /usr/sbin/p2ptbl gossip /tmp/p2ptbl/gwip      500 br-mesh # gwip gossip" \
-  >> "${IPKG_INSTROOT}/etc/crontabs/root"
+# echo "*/1 * * * *    /usr/sbin/p2ptbl gossip /tmp/p2ptbl/gwip      500 br-mesh # gwip gossip" \
+  # >> "${IPKG_INSTROOT}/etc/crontabs/root"
 
-echo "*/1 * * * * /usr/sbin/fsm watch inetable # inetable watcher" \
-  >> "${IPKG_INSTROOT}/etc/crontabs/root"
+# echo "*/1 * * * * /usr/sbin/fsm watch inetable # inetable watcher" \
+  # >> "${IPKG_INSTROOT}/etc/crontabs/root"
 

@@ -14,9 +14,9 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ffadv-fsm-inetable
-PKG_VERSION:=20130202
-PKG_RELEASE:=3
-PKG_REV:=bfbae5892ca74d62dc77129dd3266e57100ec26f
+PKG_VERSION:=20130417
+PKG_RELEASE:=1
+PKG_REV:=807f52959f99a70feb7cb0426bffbccf53eefd5b
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_REV).tar.gz
 PKG_MD5SUM:=always-use-git
@@ -47,12 +47,12 @@ define Build/Compile
 endef
 
 define Package/ffadv-fsm-inetable/install
-	$(INSTALL_DIR) $(1)/etc $(1)/etc/fsm/inetable/trans $(1)/etc/fsm/inetable/watch $(1)/sbin
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/etc/fsm/inetable/trans/*   $(1)/etc/fsm/inetable/trans/
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/etc/fsm/inetable/watch/* $(1)/etc/fsm/inetable/watch/
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/sbin/test_connectivity $(1)/sbin/
+	$(INSTALL_DIR) $(1)/etc $(1)/lib/fsm/inetable $(1)/lib/fsm/inetable/trans $(1)/lib/fsm/inetable/watch $(1)/usr/sbin
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/lib/fsm/inetable/trans/*   $(1)/lib/fsm/inetable/trans/
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/lib/fsm/inetable/watch/* $(1)/lib/fsm/inetable/watch/
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/usr/sbin/test_connectivity $(1)/usr/sbin/
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/etc/firewall.ffrl $(1)/etc/
-	$(CP) $(PKG_BUILD_DIR)/etc/fsm/inetable/{common.sh,common_queen.sh,initial_state} $(1)/etc/fsm/inetable/
+	$(CP) $(PKG_BUILD_DIR)/lib/fsm/inetable/{common.sh,initial_state} $(1)/lib/fsm/inetable/
 	mkdir -p $(1)/CONTROL
 	$(INSTALL_BIN) ./ipkg/ffadv-fsm-inetable.postinst $(1)/CONTROL/postinst
 	$(INSTALL_BIN) ./ipkg/ffadv-fsm-inetable.postrm $(1)/CONTROL/postrm

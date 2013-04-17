@@ -1,18 +1,18 @@
 #!/bin/sh
 # post-removal script.
 
-echo "+ removing settings"
+# echo "+ removing settings"
 
-rm -f "${IPKG_INSTROOT}/hbbp/p2ptbl/update"
+# rm -f "${IPKG_INSTROOT}/hbbp/p2ptbl/update"
 
-sed \
-  -e "/gwip gossip/d" \
-  -i "${IPKG_INSTROOT}/etc/crontabs/root"
+# sed \
+  # -e "/gwip gossip/d" \
+  # -i "${IPKG_INSTROOT}/etc/crontabs/root"
 
-sed \
-  -e "/inetable watcher/d" \
-  -i "${IPKG_INSTROOT}/etc/crontabs/root"
+# sed \
+  # -e "/inetable watcher/d" \
+  # -i "${IPKG_INSTROOT}/etc/crontabs/root"
 
-sed \
-  -e "/FFRL-FW/d" \
-  -i "${IPKG_INSTROOT}/etc/config/firewall"
+# sed \
+  # -e "/FFRL-FW/d" \
+  # -i "${IPKG_INSTROOT}/etc/config/firewall"

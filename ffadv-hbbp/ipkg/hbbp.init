@@ -15,7 +15,7 @@ start() {
 	do
 		gossip_list=$(uci get network.$interface.gossip_list)
 		#If the hbbp folder is not existing, it will be created
-		[ ! -d /var/hbbp/$interface/p2ptbl] && mkdir -p /var/hbbp/$interface/p2ptbl
+		[ ! -d /var/hbbp/$interface/p2ptbl ] && mkdir -p /var/hbbp/$interface/p2ptbl
 		#Remove old p2ptbl merge script links if existant
 		rm -f /var/hbbp/$interface/p2ptbl/*
 		#Linking p2ptbl merge scripts for each gossip option

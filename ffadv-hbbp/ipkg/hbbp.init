@@ -5,7 +5,7 @@ interfaces=$(uci get hbbp.settings.interfaces)
 get_iface () {
 	local interface=$1
 	local iface=$(uci get network.$interface.ifname)
-	local type=$(uci get network.$interface.type)
+	local type=$(uci -q get network.$interface.type)
 	[ "bridge" = "$type" ] && iface="br-$interface"
 	echo $iface
 }

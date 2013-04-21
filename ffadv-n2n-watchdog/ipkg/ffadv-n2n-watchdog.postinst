@@ -13,6 +13,6 @@ sed \
   -e "/n2n watchdog/d" \
   -i "${IPKG_INSTROOT}/etc/crontabs/root"
 
-echo "*/5 * * * * /sbin/n2n_watchdog # n2n watchdog" \
+echo "*/3 * * * * /usr/sbin/n2n_watchdog # n2n watchdog" \
   >> "${IPKG_INSTROOT}/etc/crontabs/root"
 

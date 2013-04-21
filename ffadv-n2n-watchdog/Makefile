@@ -14,9 +14,9 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ffadv-n2n-watchdog
-PKG_VERSION:=20130210
+PKG_VERSION:=20130421
 PKG_RELEASE:=1
-PKG_REV:=d1e631c65db01ba41eea9ec09b5bf6d4de7c74b0
+PKG_REV:=2e38b394a36eec7293978794e94e3df85f0098cd
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_REV).tar.gz
 PKG_MD5SUM:=always-use-git
@@ -36,7 +36,7 @@ define Package/ffadv-n2n-watchdog
   TITLE:=n2n watchdog
   MAINTAINER:=Linus Broich <cyrus@lambdacore.de>
 # URL:=https://github.com/FreifunkAdvanced/fsm-inetable
-  DEPENDS:=ffadv-fsm +ffadv-urlscripts
+  DEPENDS:=ffadv-fsm +ffadv-urlscripts +ffadv-fsm-inetable
 endef
 
 define Package/ffadv-n2n-watchdog/description
@@ -47,8 +47,8 @@ define Build/Compile
 endef
 
 define Package/ffadv-n2n-watchdog/install
-	$(INSTALL_DIR) $(1)/sbin
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/n2n_watchdog   $(1)/sbin
+	$(INSTALL_DIR) $(1)/usr/sbin
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/n2n_watchdog   $(1)/usr/sbin
 	mkdir -p $(1)/CONTROL
 	$(INSTALL_BIN) ./ipkg/ffadv-n2n-watchdog.postinst $(1)/CONTROL/postinst
 	$(INSTALL_BIN) ./ipkg/ffadv-n2n-watchdog.postrm $(1)/CONTROL/postrm

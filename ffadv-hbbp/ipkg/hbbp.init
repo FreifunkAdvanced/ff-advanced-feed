@@ -30,5 +30,5 @@ start() {
 }
 
 stop() {
-       killall hbbpd
+       killall -KILL hbbpd
 }

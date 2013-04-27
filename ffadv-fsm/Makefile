@@ -14,8 +14,8 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ffadv-fsm
 PKG_VERSION:=20130417
-PKG_RELEASE:=4
-PKG_REV:=ec4a1250dc9dba0df5d88eaca5bac9939dd88aa8
+PKG_RELEASE:=5
+PKG_REV:=64acc687b2b590efdcf721140bbeaa69c51b0eb3
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_REV).tar.gz
 PKG_MD5SUM:=always-use-git

@@ -1,0 +1,8 @@
+#!/bin/sh
+# post-removal script.
+
+echo "+ removing crontab"
+
+sed \
+ -e "/owm update/d" \
+ -i "${IPKG_INSTROOT}/etc/crontabs/root"

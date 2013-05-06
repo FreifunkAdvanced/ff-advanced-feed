@@ -21,9 +21,9 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ffadv-webservice
-PKG_VERSION:=20130417
-PKG_RELEASE:=3
-PKG_REV:=6f4fe3c9bf9c7935abce80aba9af1edc8016e48a
+PKG_VERSION:=20130506
+PKG_RELEASE:=1
+PKG_REV:=35da9554d8c0f5a4350a0298d0ff8a23a2029730
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_REV).tar.gz
 PKG_MD5SUM:=always-use-git
@@ -43,7 +43,7 @@ define Package/ffadv-webservice
   TITLE:=Freifunk Rheinland e. V. Webservice
   MAINTAINER:=Linus Broich <cyrus@lambdacore.de>
   URL:=https://freifunk-rheinland.net
-  DEPENDS:=+uhttpd +ffadv-fsm-inetable
+  DEPENDS:=+uhttpd +ffadv-fsm-inetable +ffadv-owm-update
 endef
 
 define Package/ffadv-webservice/description

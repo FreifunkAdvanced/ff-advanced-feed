@@ -15,8 +15,8 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ffadv-owm-update
 PKG_VERSION:=20130506
-PKG_RELEASE:=1
-PKG_REV:=ada02e7ff172f62111e150a7bf21b1246d91523a
+PKG_RELEASE:=2
+PKG_REV:=d5f7b1976f18778edc694d01a00129d80371b837
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_REV).tar.gz
 PKG_MD5SUM:=always-use-git
@@ -36,7 +36,7 @@ define Package/ffadv-owm-update
   TITLE:=OpenWifiMap update script
   MAINTAINER:=Linus Broich <lcb01@lcb01.de>
 # URL:=https://github.com/FreifunkAdvanced/owm-update
-  DEPENDS:=ffadv-fsm +ffadv-nodeid +curl
+  DEPENDS:=ffadv-fsm +ffadv-nodeid +netcat
 endef
 
 define Package/ffadv-owm-update/description

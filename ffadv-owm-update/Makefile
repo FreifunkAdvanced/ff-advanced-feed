@@ -15,8 +15,8 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ffadv-owm-update
 PKG_VERSION:=20130506
-PKG_RELEASE:=3
-PKG_REV:=4dd4c977b915c766bf7993b1026b7ad56ab116c5
+PKG_RELEASE:=4
+PKG_REV:=03ddfabe6f708b81f48169b41d50f0de63c93d3d
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_REV).tar.gz
 PKG_MD5SUM:=always-use-git

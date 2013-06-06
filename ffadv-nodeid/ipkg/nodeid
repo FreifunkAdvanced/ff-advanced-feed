@@ -3,6 +3,6 @@ START=20
 
 start ()  {
       if ! [ -f /etc/nodeid ]; then
-      	 ifconfig eth0 | grep -o -E '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}' | md5sum | cut -f1 -d' ' > /etc/nodeid
+        batctl o | head -1 | grep -o -E '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}' | md5sum | cut -f1 -d' ' > /etc/nodeid
       fi
 }

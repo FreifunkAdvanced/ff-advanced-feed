@@ -14,7 +14,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ffadv-nodeid
-PKG_VERSION:=20130417
+PKG_VERSION:=20130606
 PKG_RELEASE:=1
 
 include $(INCLUDE_DIR)/package.mk

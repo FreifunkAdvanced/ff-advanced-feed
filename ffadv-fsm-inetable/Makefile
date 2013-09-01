@@ -15,8 +15,8 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ffadv-fsm-inetable
 PKG_VERSION:=20130530
-PKG_RELEASE:=8
-PKG_REV:=659d864de2d4fe12be9cd2a97e86dbbf100a274d
+PKG_RELEASE:=9
+PKG_REV:=aaeb57051d140352cec8f56008598b579d7d60fe
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_REV).tar.gz
 PKG_MD5SUM:=always-use-git

@@ -1,0 +1,18 @@
+#!/bin/sh
+# post-install script.
+
+if [ ! -f "${IPKG_INSTROOT}/etc/crontabs/root" ]; then
+  echo "+ crontab 'root' not found, creating file"
+  mkdir -p "${IPKG_INSTROOT}/etc/crontabs"
+  touch "${IPKG_INSTROOT}/etc/crontabs/root"
+fi
+
+echo "+ adding crontab entries"
+
+sed \
+  -e "/splash sync/d" \
+  -i "${IPKG_INSTROOT}/etc/crontabs/root"
+
+echo "*/1 * * * * /usr/sbin/splash_sync queen # splash sync" \
+  >> "${IPKG_INSTROOT}/etc/crontabs/root"
+

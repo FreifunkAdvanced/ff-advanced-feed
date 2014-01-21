@@ -44,7 +44,7 @@ endef
 
 define Package/ffadv-fastd-watchdog/install
 	$(INSTALL_DIR) $(1)/usr/sbin
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/fastd_watchdog   $(1)/usr/sbin
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/usr/sbin/fastd_watchdog   $(1)/usr/sbin
 	mkdir -p $(1)/CONTROL
 	$(INSTALL_BIN) ./ipkg/ffadv-fastd-watchdog.postinst $(1)/CONTROL/postinst
 	$(INSTALL_BIN) ./ipkg/ffadv-fastd-watchdog.postrm $(1)/CONTROL/postrm

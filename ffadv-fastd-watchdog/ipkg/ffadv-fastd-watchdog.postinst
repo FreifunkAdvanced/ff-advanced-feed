@@ -1,0 +1,18 @@
+#!/bin/sh
+# post-install script.
+
+if [ ! -f "${IPKG_INSTROOT}/etc/crontabs/root" ]; then
+  echo "+ crontab 'root' not found, creating file"
+  mkdir -p "${IPKG_INSTROOT}/etc/crontabs"
+  touch "${IPKG_INSTROOT}/etc/crontabs/root"
+fi
+
+echo "+ adding fastd watchdog crontab entry"
+
+sed \
+  -e "/fastd watchdog/d" \
+  -i "${IPKG_INSTROOT}/etc/crontabs/root"
+
+echo "*/3 * * * * /usr/sbin/fastd_watchdog # fastd watchdog" \
+  >> "${IPKG_INSTROOT}/etc/crontabs/root"
+

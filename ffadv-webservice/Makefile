@@ -22,8 +22,8 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ffadv-webservice
 PKG_VERSION:=20130506
-PKG_RELEASE:=10
-PKG_REV:=e71de285066ad0d22ca3a0b4f62b71e1a9039eb8
+PKG_RELEASE:=11
+PKG_REV:=39643fb4d5894c1a6b0fa1ba6470bf9e23f668d9
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_REV).tar.gz
 PKG_MD5SUM:=always-use-git

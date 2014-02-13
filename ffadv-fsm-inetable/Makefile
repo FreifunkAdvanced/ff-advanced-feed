@@ -14,9 +14,9 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ffadv-fsm-inetable
-PKG_VERSION:=20130530
-PKG_RELEASE:=9
-PKG_REV:=aaeb57051d140352cec8f56008598b579d7d60fe
+PKG_VERSION:=20140113
+PKG_RELEASE:=3
+PKG_REV:=6bd2b2cd075a0fb8a82815720527961ea51b8423
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_REV).tar.gz
 PKG_MD5SUM:=always-use-git
@@ -52,7 +52,7 @@ define Package/ffadv-fsm-inetable/install
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/lib/fsm/inetable/watch/* $(1)/lib/fsm/inetable/watch/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/usr/sbin/test_connectivity $(1)/usr/sbin/
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/etc/firewall.ffrl $(1)/etc/
-	$(CP) $(PKG_BUILD_DIR)/lib/fsm/inetable/{common.sh,initial_state} $(1)/lib/fsm/inetable/
+	$(CP) $(PKG_BUILD_DIR)/lib/fsm/inetable/{common.sh,common-watch.sh,common-queen.sh,initial_state} $(1)/lib/fsm/inetable/
 	mkdir -p $(1)/CONTROL
 	$(INSTALL_BIN) ./ipkg/ffadv-fsm-inetable.postinst $(1)/CONTROL/postinst
 	$(INSTALL_BIN) ./ipkg/ffadv-fsm-inetable.postrm $(1)/CONTROL/postrm

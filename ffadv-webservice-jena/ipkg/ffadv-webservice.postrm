@@ -4,6 +4,6 @@
 echo "+ removing crontab entries"
 
 sed \
-  -e "/n2n watchdog/d" \
+  -e "/splash sync/d" \
   -i "${IPKG_INSTROOT}/etc/crontabs/root"
 

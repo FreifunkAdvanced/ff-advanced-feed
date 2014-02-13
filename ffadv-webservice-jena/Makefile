@@ -20,10 +20,10 @@
 
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=ffadv-webservice
-PKG_VERSION:=20130506
-PKG_RELEASE:=11
-PKG_REV:=39643fb4d5894c1a6b0fa1ba6470bf9e23f668d9
+PKG_NAME:=ffadv-webservice-jena
+PKG_VERSION:=2013117
+PKG_RELEASE:=1
+PKG_REV:=beb5a0daac9d632e8e00a7864b3feb0d514fd8bb
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_REV).tar.gz
 PKG_MD5SUM:=always-use-git
@@ -34,19 +34,19 @@ PKG_SOURCE_PROTO:=git
 
 include $(INCLUDE_DIR)/package.mk
 
-define Package/ffadv-webservice
+define Package/ffadv-webservice-jena
   SECTION:=base
   CATEGORY:=Utilities
   SUBMENU:=Freifunk Advanced
   PKGARCH:=all
   DEFAULT:=n
-  TITLE:=Freifunk Rheinland e. V. Webservice
-  MAINTAINER:=Linus Broich <cyrus@lambdacore.de>
-  URL:=https://freifunk-rheinland.net
+  TITLE:=Freifunk Jena Webservice
+  MAINTAINER:=Michael Stöcker <micha@stoecker.me>
+  URL:=https://freifunk-jena.de
   DEPENDS:=+uhttpd +ffadv-fsm-inetable +ffadv-owm-update
 endef
 
-define Package/ffadv-webservice/description
+define Package/ffadv-webservice-jena/description
   Dem Freifunknutzer wird bei der ersten Einwahl ins Freifunk eine Splash-Seite
   Präsentiert. Möchte er ins Internet gelangen muss er den Bedingungen
   zustimmen. Außerdem erhält der Nutzer auf diesen Webseiten die wichtigsten
@@ -56,7 +56,7 @@ endef
 define Build/Compile
 endef
 
-define Package/ffadv-webservice/install
+define Package/ffadv-webservice-jena/install
 	$(INSTALL_DIR) $(1)/etc/config $(1)/www $(1)/usr/sbin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/usr/sbin/splash_sync $(1)/usr/sbin/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/etc/splash.sh $(1)/etc/
@@ -68,4 +68,4 @@ define Package/ffadv-webservice/install
 	$(INSTALL_CONF) ./ipkg/splash.config $(1)/etc/config/splash
 endef
 
-$(eval $(call BuildPackage,ffadv-webservice))
+$(eval $(call BuildPackage,ffadv-webservice-jena))

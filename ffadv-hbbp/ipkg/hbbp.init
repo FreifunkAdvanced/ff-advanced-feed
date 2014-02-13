@@ -13,7 +13,7 @@ get_iface () {
 start() {
 	for interface in $interfaces
 	do
-		gossip_list=$(uci get network.$interface.gossip_list)
+		gossip_list=$(uci -q get fsm.$interface.gossip_list)
 		#If the hbbp folder is not existing, it will be created
 		[ ! -d /var/hbbp/$interface/p2ptbl ] && mkdir -p /var/hbbp/$interface/p2ptbl
 		#Remove old p2ptbl merge script links if existant

@@ -7,12 +7,12 @@ if [ ! -f "${IPKG_INSTROOT}/etc/crontabs/root" ]; then
   touch "${IPKG_INSTROOT}/etc/crontabs/root"
 fi
 
-echo "+ adding n2n watchdog crontab entry"
+echo "+ adding crontab entries"
 
 sed \
-  -e "/n2n watchdog/d" \
+  -e "/splash sync/d" \
   -i "${IPKG_INSTROOT}/etc/crontabs/root"
 
-echo "*/3 * * * * /usr/sbin/n2n_watchdog # n2n watchdog" \
+echo "*/1 * * * * /usr/sbin/splash_sync queen # splash sync" \
   >> "${IPKG_INSTROOT}/etc/crontabs/root"
 
